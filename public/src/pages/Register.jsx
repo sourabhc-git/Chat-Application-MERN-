@@ -25,7 +25,13 @@ function Register(){
         pauseOnHover: true,
         draggable: true,
         theme: "dark",
-    }
+    };
+
+    useEffect (()=> {
+        if (localStorage.getItem(`chat-app-user`)) {
+            navigate(`/`)
+        }
+        }, [])
 
 
     const handleSubmit = async (event)=>{
