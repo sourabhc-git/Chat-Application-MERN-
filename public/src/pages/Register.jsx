@@ -11,6 +11,7 @@ import axios from "axios";
 import { registerRoute } from '../utils/APIRoutes'
 function Register(){
     const navigate  = useNavigate()
+
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -32,6 +33,7 @@ function Register(){
     if (handleValidation()){
         console.log("in validation", registerRoute);
         const {password, username, email} = values;
+
         const {data} = await axios.post(registerRoute, {
             username, 
             email,
@@ -48,6 +50,7 @@ function Register(){
     };
 
 const handleValidation = () => {
+
     const {password, confirmPassword, username, email} = values;
     if (password !== confirmPassword) {
         toast.error("password and confirm password should be the same", toastOptions);
